@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css?family=Po ppins:100, 200,300,400,500,600,700,800,900');
+
+* ,html ,body
+ {
+    margin: 0;
+    padding: 0;
+     
+}
+body {
+    height: 4000px;
+}
+
+
+
+
+
+header
+ {
+    
+    height: 112px;
+    line-height: 112px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+.secondary {
+    background-color: deepskyblue;
+    box-shadow: 0px 0px 17px 0px;
+    transition: all 0.5s ease-in;
+}
+
+ul {
+    list-style: none;
+    
+}
+ul li {
+    display: inline-block;
+    
+}
+header nav {
+    float: right;
+    
+}
+header nav ul li {  /*zadtha ana */
+   /* background-position: right; */
+    display: inline-block;
+   /* background-position: right; */
+    margin-left: 50px;
+    
+}
+
+
+header .row {
+    justify-content: space-between;
+    
+}
+
+
+header .fa {
+    margin-right: 8px;
+    
+}
+
+
+.logo img {
+    margin-top: 0px;
+    
+   
+    
+}
+
+
+
+
+
+header nav ul li a {
+    padding-right: 0px;  /*30px*/
+    font-weight: bold;
+    color: white;
+    transition: all 0.5s ease-in;
+    position: relative;            /* zadt hada o li taht mano bach nkabar espace de clique menu (position peut elemi) */
+    display: block;
+    
+}
+
+/* ghir zayda ha d fonction bach menu ywali mali kathot souris kaytzoma */
+header nav ul:hover li a {
+    transform: scale(1.5);
+    opacity: .2;
+    filter: blur(5px);
+}
+header nav ul li a:hover {
+    text-decoration: none;
+    color: orange;
+    transform: scale(1.5);    /* mn transform l filter hta hiya zyada m3a dak zoom */
+    opacity: 1;
+    filter: blur(0);
+    
+}
+
+
+
+
+
+.img1 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url(..//img/tp.jpg);
+    background-size: 50% 50%;
+}
+
+
+.slider , .slider ul ,.slider ul li {
+    height: 500px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+
+                       
+
+
+.slider h2 {
+    font-weight: bold;
+    margin-top: 190px;
+ 
+    
+}
+/*animation ESTC */
+.slider h2 span {
+    color: orange;
+
+    
+    margin: 0;
+    padding: 0;
+    animation: animate 2s linear infinite;
+}
+.slider h2 span:nth-child(1){
+    animation-delay: 0s;
+}
+.slider h2 span:nth-child(2){
+    animation-delay: 0.25s;
+}
+.slider h2 span:nth-child(3){
+    animation-delay: 0.5s;
+}
+.slider h2 span:nth-child(4){
+    animation-delay: 0.75s;
+}
+@keyframes animate {
+    0%,100%
+    {
+        color: #fff;
+        filter: blur(2px);
+        text-shadow: 0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 40px #fff,
+                    0 0 80px #fff;
+    }
+    5%,95%
+    {
+        color: orange;
+        filter: blur(0px);
+        text-shadow: 0 0 10px none;
+    }
+}
+
+
+
+
+
+.img2 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/mm.PNG);
+    background-size: 100% 100%;
+}
+.img3 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/bok.png);
+    background-size: 100% 100%;
+}
+
+.slider a {
+    padding: 10px 40px;
+    margin-right: 10px;
+}
+.slider a.btn-half {
+    background-color: deepskyblue;
+    color: white;
+    transition: 0.5s ease-in;
+}
+.slider a.btn-half:hover {
+    background-color: dodgerblue;
+}
+.slider a.btn-full {
+    background-color: orange;
+    color: white;
+    transition: 0.5s ease-in;
+}
+.slider a.btn-full:hover {
+    background-color: #e67e22;
+}
+
+.slider i {
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+.boo {
+    margin: 0;
+    padding: 0;  
+    display: flex;  
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+ /*   background: #060c21;   */
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.travaux {
+ 
+
+
+    position: relative;
+    width: 70%;   /* hiya li katzayd wast o la janb */
+    display: grid;  
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 0 40px;
+ /*   display: flex;  
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    background: #060c21;   
+    font-family: 'Poppins', sans-serif; */
+} 
+.travaux .box {
+    position: relative;
+    height: 400px;
+    background: #04befe;    /* #060c21 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+
+}
+.travaux .box:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7));
+    
+    transform: skew(2deg,2deg);
+    /* z-index: -1; */   
+}
+.travaux .box:nth-child(1):before {
+ /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
+     background: linear-gradient(315deg,#1f060e,#04befe);
+}
+.travaux .box:nth-child(2):before {
+    /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
+        background: linear-gradient(315deg,#1f060e,#04befe);
+}
+.travaux .box:nth-child(3):before {
+    /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
+        background: linear-gradient(315deg,#1f060e,#04befe);
+}
+
+.travaux .box:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    padding: 20px;
+    transform: translateY(40px);
+}
+.box .content h2 {
+    position: absolute;
+    top: -60px;
+    right: 20px;
+    margin: 0;
+    padding: 0;
+    font-size: 10em;
+    color: rgba(255,255,255,.05);
+    transition: 0.5s;
+}
+.box:hover .content h2 {
+    top: -140px;
+}
+.box .content h3 {
+    margin: 0 0 10px;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+.box .content p {
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 16px;
+}
+.box .content a {
+    position: relative;
+    margin: 20px 0 0;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    display: inline-block;
+    color: #fff;
+    transition: 0.5s;
+    transform: translateY(-40px);
+    opacity: 0;
+    visibility: hidden;
+}
+.box:hover .content a {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.box .content a:hover {
+    color: #000;
+    background: #fff;
+}
+
+
+
+

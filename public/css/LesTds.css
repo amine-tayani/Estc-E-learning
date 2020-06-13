@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css?family=Po ppins:100, 200,300,400,500,600,700,800,900');
+
+* ,html ,body
+ {
+    margin: 0;
+    padding: 0;
+     
+}
+body {
+    height: 4000px;
+}
+
+
+
+
+
+header
+ {
+    
+    height: 112px;
+    line-height: 112px;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+.secondary {
+    background-color: deepskyblue;
+    box-shadow: 0px 0px 17px 0px;
+    transition: all 0.5s ease-in;
+}
+
+ul {
+    list-style: none;
+    
+}
+ul li {
+    display: inline-block;
+    
+}
+header nav {
+    float: right;
+    
+}
+header nav ul li {  /*zadtha ana */
+   /* background-position: right; */
+    display: inline-block;
+   /* background-position: right; */
+    margin-left: 50px;
+    
+}
+
+
+header .row {
+    justify-content: space-between;
+    
+}
+
+
+header .fa {
+    margin-right: 8px;
+    
+}
+
+
+.logo img {
+    margin-top: 0px;
+    
+   
+    
+}
+
+
+
+
+
+header nav ul li a {
+    padding-right: 0px;  /*30px*/
+    font-weight: bold;
+    color: white;
+    transition: all 0.5s ease-in;
+    position: relative;            /* zadt hada o li taht mano bach nkabar espace de clique menu (position peut elemi) */
+    display: block;
+    
+}
+
+/* ghir zayda ha d fonction bach menu ywali mali kathot souris kaytzoma */
+header nav ul:hover li a {
+    transform: scale(1.5);
+    opacity: .2;
+    filter: blur(5px);
+}
+header nav ul li a:hover {
+    text-decoration: none;
+    color: orange;
+    transform: scale(1.5);    /* mn transform l filter hta hiya zyada m3a dak zoom */
+    opacity: 1;
+    filter: blur(0);
+    
+}
+
+
+
+
+
+.img1 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url(..//img/tds.jpg);
+    background-size: 50% 50% ;
+}
+
+
+.slider , .slider ul ,.slider ul li {
+    height: 500px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+
+                          
+
+
+.slider h2 {
+    font-weight: bold;
+    margin-top: 220px;
+ 
+    
+}
+/*animation ESTC */
+.slider h2 span {
+    color: orange;
+
+    
+    margin: 0;
+    padding: 0;
+    animation: animate 2s linear infinite;
+}
+.slider h2 span:nth-child(1){
+    animation-delay: 0s;
+}
+.slider h2 span:nth-child(2){
+    animation-delay: 0.25s;
+}
+.slider h2 span:nth-child(3){
+    animation-delay: 0.5s;
+}
+.slider h2 span:nth-child(4){
+    animation-delay: 0.75s;
+}
+@keyframes animate {
+    0%,100%
+    {
+        color: #fff;
+        filter: blur(2px);
+        text-shadow: 0 0 10px #fff,
+                    0 0 20px #fff,
+                    0 0 40px #fff,
+                    0 0 80px #fff;
+    }
+    5%,95%
+    {
+        color: orange;
+        filter: blur(0px);
+        text-shadow: 0 0 10px none;
+    }
+}
+
+
+
+
+
+.img2 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/mm.PNG);
+    background-size: 100% 100%;
+}
+.img3 {
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/bok.png);
+    background-size: 100% 100%;
+}
+
+.slider a {
+    padding: 10px 40px;
+    margin-right: 10px;
+}
+.slider a.btn-half {
+    background-color: deepskyblue;
+    color: white;
+    transition: 0.5s ease-in;
+}
+.slider a.btn-half:hover {
+    background-color: dodgerblue;
+}
+.slider a.btn-full {
+    background-color: orange;
+    color: white;
+    transition: 0.5s ease-in;
+}
+.slider a.btn-full:hover {
+    background-color: #e67e22;
+}
+
+.slider i {
+    font-size: 23px;
+    margin-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif ;
+} 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(0deg,#fff 50%, #2196f3);
+
+}        */
+.containerrr {
+    margin-left: 5%;
+    align-items: center;
+    min-height: 40vh;
+    max-width: 1000px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    transition: 0.5s;
+}
+.containerrr .card {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    background: rgb(185, 185, 185);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    
+}
+.containerrr:hover .card {
+    filter: blur(5px);
+    transform: scale(.7);
+}
+.containerrr .card:hover {
+    filter: blur(0px);
+    transform: scale(1);
+}
+
+.containerrr .card::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    transition: 0.5s;
+}
+.containerrr .card:hover::before {
+    background: #000;
+    transform: scaleY(1.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .2);
+}
+
+
+.containerrr .card .content {
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    transition: 0.5s;
+}
+.containerrr .card:hover .content {
+    color: #fff;
+}
+
+.containerrr .card .content h2 {
+    font-size: 3em;
+}
+.containerrr .card .content p {
+    font-size: 0.9em;
+    color: #000;
+}
+.containerrr .card .content a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 5px 10px;
+    background: #262626;
+    color: #fff;
+}
+.containerrr .card:hover .content a {
+    background: #2196f3;
+}
+.containerrr .card:hover .content p {
+    color: #fff;
+}
