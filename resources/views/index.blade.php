@@ -35,7 +35,6 @@
               <li><a href="#" ><i class="fa fa-book" aria-hidden="true"></i>Cours</a></li>
               <li><a href="#" ><i class="fa fa-bookmark" aria-hidden="true"></i>Exercices</a></li>
               <li><a href="#" ><i class="fa fa-phone" aria-hidden="true"></i>Contact</a></li>
-              <li><a href="#" ><i class="fa fa-sign-in" aria-hidden="true"></i>Log out</a></li>
             </ul>
           
           </nav>
@@ -56,7 +55,7 @@
           <i class="fa fa-android"></i>
           <i class="fa fa-windows"></i><br><br>
           <a href="" class="btn btn-half"> Acceder au cours</a>
-          <a href="" class="btn btn-full"> Inscrivez-vouz</a>
+          <a href="/register" class="btn btn-full"> Inscrivez-vouz</a>
         </li>
         
         <li class="img3">
@@ -66,7 +65,7 @@
           <i class="fa fa-android"></i>
           <i class="fa fa-windows"></i><br><br>
           <a href="" class="btn btn-half"> Acceder au cours</a>
-          <a href="" class="btn btn-full"> Inscrivez-vouz</a>
+          <a href="/register" class="btn btn-full"> Inscrivez-vouz</a>
         </li>
       </ul>
     </section>
@@ -98,8 +97,6 @@
                   rythme,en comblant d’abord leurs lacunes
                      puis en accélérant leur apprentissage
                      à son rythme en fonction de ses disponibilités
-
-
               </p>
             </div>
           
