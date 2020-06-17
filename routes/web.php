@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-
+Route::get('users/', 'UserController@index');
 
 
 Auth::routes();

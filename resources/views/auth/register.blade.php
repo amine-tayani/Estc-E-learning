@@ -1,102 +1,83 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+@section('content') --}}
 
-                <div class="card-body">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>E-learning Plateforme | Inscription</title>
+
+    <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="user singinBx">
+                <div class="imgBx"><img src="{{ asset('img/booo.jpg') }}"></div>
+                <div class="formBx">
+
                     <form method="POST" action="{{ route('register') }}">
+                        <h2>Créer un compte</h2>
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="nom" class="col-md-4 col-form-label text-md-right">{{ __('nom') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="nom" type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required autocomplete="nom" autofocus>
-
-                                @error('nom')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="prenom" class="col-md-4 col-form-label text-md-right">{{ __('prenom') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required autocomplete="prenom" autofocus>
-
-                                @error('prenom')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('username') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-                                @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                        <input id="nom" type="text" name="nom" value="{{ old('nom') }}" required autocomplete="nom"
+                            autofocus placeholder="Nom">
+                        @error('nom')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
 
 
+                        <input id="prenom" type="text" name="prenom" value="{{ old('prenom') }}" required
+                            autocomplete="prenom" autofocus placeholder="Prenom">
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        @error('prenom')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
+                        <input id="username" type="text" name="username" value="{{ old('username') }}" required
+                            autocomplete="username" autofocus placeholder="Username">
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        @error('username')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                        <input id="password" type="password" name="password" required autocomplete="new-password"
+                            placeholder="Mot de Passe">
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
+                        <input id="password-confirm" type="password" name="password_confirmation" required
+                            autocomplete="new-password" placeholder="Confirmer Mot de Passe">
+                        <input id="filiere" type="text" name="filiere" required placeholder="Filiere">
+                        @error('filiere')
+                        <span class="invalid-feedback" role="alert">
+                            {{ $message }}
+                        </span>
+                        @enderror
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="filiere" class="col-md-4 col-form-label text-md-right">{{ __('filiere') }}</label>
-                              <div class="col-md-6">
-                                  <input id="filiere" type="text" class="form-control @error('filiere') is-invalid @enderror" name="filiere" required >
-                                      @error('filiere')
-                                      <span class="invalid-feedback" role="alert">
-                                      <strong>{{ $message }}</strong>
-                                      </span>
-                                      @enderror
-                                      </div>
-                                      </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
+                        <input type="submit" value="inscrire"></input>
+                        <p class="signup">vous avez un compte ? | <a href="/login"> Se connecter</a></p>
+
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-@endsection
+    </section>
+</body>
+
+</html>
