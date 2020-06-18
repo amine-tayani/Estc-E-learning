@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 
 class CoursController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $cours = Cours::all();
+        return view('cours.cours_list',['cours' => $cours]);
     }
 
     /**
@@ -35,7 +41,7 @@ class CoursController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
     }
 
     /**

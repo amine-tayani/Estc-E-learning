@@ -1,25 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Po ppins:100, 200,300,400,500,600,700,800,900');
+@import url("https://fonts.googleapis.com/css?family=Po ppins:100, 200,300,400,500,600,700,800,900");
 
-* ,html ,body
- {
+*,
+html,
+body {
     margin: 0;
     padding: 0;
-     
 }
 body {
     height: 4000px;
 }
 
-
-
-
-
-header
- {
-    
+header {
     height: 112px;
     line-height: 112px;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 100%;
 }
@@ -31,149 +25,120 @@ header
 
 ul {
     list-style: none;
-    
 }
 ul li {
     display: inline-block;
-    
 }
 header nav {
     float: right;
-    
 }
-header nav ul li {  /*zadtha ana */
-   /* background-position: right; */
+header nav ul li {
+    /*zadtha ana */
+    /* background-position: right; */
     display: inline-block;
-   /* background-position: right; */
+    /* background-position: right; */
     margin-left: 50px;
-    
 }
-
 
 header .row {
     justify-content: space-between;
-    
 }
-
 
 header .fa {
     margin-right: 8px;
-    
 }
-
 
 .logo img {
     margin-top: 0px;
-    
-   
-    
 }
 
-
-
-
-
 header nav ul li a {
-    padding-right: 0px;  /*30px*/
+    padding-right: 0px; /*30px*/
     font-weight: bold;
     color: white;
     transition: all 0.5s ease-in;
-    position: relative;            /* zadt hada o li taht mano bach nkabar espace de clique menu (position peut elemi) */
+    position: relative; /* zadt hada o li taht mano bach nkabar espace de clique menu (position peut elemi) */
     display: block;
-    
 }
 
 /* ghir zayda ha d fonction bach menu ywali mali kathot souris kaytzoma */
 header nav ul:hover li a {
     transform: scale(1.5);
-    opacity: .2;
+    opacity: 0.2;
     filter: blur(5px);
 }
 header nav ul li a:hover {
     text-decoration: none;
     color: orange;
-    transform: scale(1.5);    /* mn transform l filter hta hiya zyada m3a dak zoom */
+    transform: scale(
+        1.5
+    ); /* mn transform l filter hta hiya zyada m3a dak zoom */
     opacity: 1;
     filter: blur(0);
-    
 }
 
-
-
-
-
 .img1 {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),url(..//img/tp.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+        url(/img/tp.jpg);
     background-size: 50% 50%;
 }
 
-
-.slider , .slider ul ,.slider ul li {
+.slider,
+.slider ul,
+.slider ul li {
     height: 500px;
     width: 100%;
     color: white;
     text-align: center;
 }
 
-
-                       
-
-
 .slider h2 {
     font-weight: bold;
     margin-top: 190px;
- 
-    
 }
 /*animation ESTC */
 .slider h2 span {
     color: orange;
 
-    
     margin: 0;
     padding: 0;
     animation: animate 2s linear infinite;
 }
-.slider h2 span:nth-child(1){
+.slider h2 span:nth-child(1) {
     animation-delay: 0s;
 }
-.slider h2 span:nth-child(2){
+.slider h2 span:nth-child(2) {
     animation-delay: 0.25s;
 }
-.slider h2 span:nth-child(3){
+.slider h2 span:nth-child(3) {
     animation-delay: 0.5s;
 }
-.slider h2 span:nth-child(4){
+.slider h2 span:nth-child(4) {
     animation-delay: 0.75s;
 }
 @keyframes animate {
-    0%,100%
-    {
+    0%,
+    100% {
         color: #fff;
         filter: blur(2px);
-        text-shadow: 0 0 10px #fff,
-                    0 0 20px #fff,
-                    0 0 40px #fff,
-                    0 0 80px #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff;
     }
-    5%,95%
-    {
+    5%,
+    95% {
         color: orange;
         filter: blur(0px);
         text-shadow: 0 0 10px none;
     }
 }
 
-
-
-
-
 .img2 {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/mm.PNG);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+        url(..//img/mm.PNG);
     background-size: 100% 100%;
 }
 .img3 {
-    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)), url(..//img/bok.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
+        url(..//img/bok.png);
     background-size: 100% 100%;
 }
 
@@ -203,87 +168,73 @@ header nav ul li a:hover {
     margin-right: 10px;
 }
 
-
-
-
-
-
-
-
-
-
 .boo {
     margin: 0;
-    padding: 0;  
-    display: flex;  
-    justify-content: center; 
+    padding: 0;
+    display: flex;
+    justify-content: center;
     align-items: center;
     min-height: 100vh;
- /*   background: #060c21;   */
-    font-family: 'Poppins', sans-serif;
+    /*   background: #060c21;   */
+    font-family: "Poppins", sans-serif;
 }
 
-
 .travaux {
- 
-
-
     position: relative;
-    width: 70%;   /* hiya li katzayd wast o la janb */
-    display: grid;  
+    width: 70%; /* hiya li katzayd wast o la janb */
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     grid-template-rows: auto;
     grid-gap: 0 40px;
- /*   display: flex;  
+    /*   display: flex;  
     justify-content: center; 
     align-items: center;
     min-height: 100vh;
     background: #060c21;   
     font-family: 'Poppins', sans-serif; */
-} 
+}
 .travaux .box {
     position: relative;
     height: 400px;
-    background: #04befe;    /* #060c21 */
+    background: #04befe; /* #060c21 */
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid #000;
-
 }
 .travaux .box:before {
-    content: '';
+    content: "";
     position: absolute;
     top: -2px;
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7));
-    
-    transform: skew(2deg,2deg);
-    /* z-index: -1; */   
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7));
+
+    transform: skew(2deg, 2deg);
+    /* z-index: -1; */
 }
 .travaux .box:nth-child(1):before {
- /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
-     background: linear-gradient(315deg,#1f060e,#04befe);
+    /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
+    background: linear-gradient(315deg, #1f060e, #04befe);
 }
 .travaux .box:nth-child(2):before {
     /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
-        background: linear-gradient(315deg,#1f060e,#04befe);
+    background: linear-gradient(315deg, #1f060e, #04befe);
 }
 .travaux .box:nth-child(3):before {
     /*   background: linear-gradient(315deg,#1f060e,#2719e6); */
-        background: linear-gradient(315deg,#1f060e,#04befe);
+    background: linear-gradient(315deg, #1f060e, #04befe);
 }
 
 .travaux .box:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 50%;
     height: 100%;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     pointer-events: none;
 }
 
@@ -299,7 +250,7 @@ header nav ul li a:hover {
     margin: 0;
     padding: 0;
     font-size: 10em;
-    color: rgba(255,255,255,.05);
+    color: rgba(255, 255, 255, 0.05);
     transition: 0.5s;
 }
 .box:hover .content h2 {
@@ -340,7 +291,3 @@ header nav ul li a:hover {
     color: #000;
     background: #fff;
 }
-
-
-
-
