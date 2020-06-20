@@ -71,6 +71,12 @@
         <div class="desc">
           {{ $cours->description }}
         </div>
+        <div>
+          <a class="btn" href="/cours/download/{{ $cours->pdf}}">Telecharger</a>
+          <a class="btn" href="/cours/view/{{ $cours->id}}">Voir Cours</a>
+        </div>
+        <div>
+        </div>
       </article>
     </div>
     @endforeach

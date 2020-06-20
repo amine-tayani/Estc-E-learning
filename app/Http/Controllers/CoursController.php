@@ -30,7 +30,7 @@ class CoursController extends Controller
      */
     public function create()
     {
-        //
+        return view('cours.cours-create');
     }
 
     /**
@@ -41,7 +41,19 @@ class CoursController extends Controller
      */
     public function store(Request $request)
     {
-       
+       $cours = new Cours;
+       if($request->file('file')){
+           $file = $request->file('file');
+           $filename = time().'.'.$file->getClientOriginalExtension();
+           $request->file->move('storage/',$filename);
+
+           $cours->pdf=$filename;
+       }
+       $cours->libele=$request->libele;
+       $cours->description=$request->description;
+       $cours->save();
+       return redirect()->back();
+
     }
 
     /**
@@ -50,10 +62,17 @@ class CoursController extends Controller
      * @param  \App\Cours  $cours
      * @return \Illuminate\Http\Response
      */
-    public function show(Cours $cours)
+    public function show($id)
     {
-        //
+        $cours = Cours::find($id);
+        return view('cours.view-cours',compact('cours'));
     }
+
+    public function download($file){
+         return response()->download('storage/',$file);
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -61,11 +80,17 @@ class CoursController extends Controller
      * @param  \App\Cours  $cours
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cours $cours)
-    {
-        //
-    }
 
+    public function modifier()
+    {
+        $cours = Cours::all();
+        return view('cours.modifier-cours',['cours' => $cours]);
+    }
+    public function edit($id)
+    {
+        $cours = Cours::findOrFail($id);
+        return view('cours.edit-cours', compact('cours'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -73,9 +98,21 @@ class CoursController extends Controller
      * @param  \App\Cours  $cours
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cours $cours)
+    public function update(Request $request, $id)
     {
-        //
+        $cours = Cours::find($id);
+
+        if($request->file('file')){
+            $file = $request->file('file');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $request->file->move('storage/',$filename);
+ 
+            $cours->pdf=$filename;
+        }
+        $cours->libele=$request->libele;
+        $cours->description=$request->description;
+        $cours->save();
+        return redirect()->back();
     }
 
     /**
@@ -84,8 +121,11 @@ class CoursController extends Controller
      * @param  \App\Cours  $cours
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cours $cours)
+    public function destroy($id)
     {
-        //
+        $cours = Cours::findOrFail($id);
+        $cours->delete();
+
+        return redirect()->back();
     }
 }

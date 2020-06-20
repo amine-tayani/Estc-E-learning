@@ -37,6 +37,7 @@
             <li><a href="/cours"><i class="fa fa-book" aria-hidden="true"></i>Cours</a></li>
             <li><a href="/travaux"><i class="fa fa-bookmark" aria-hidden="true"></i>Exercices</a></li>
             <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i>Contact</a></li>
+            <li><a href="{{ route('admin.login') }}"><i class="fa fa-user" aria-hidden="true"></i>Admin</a></li>
           </ul>
 
         </nav>

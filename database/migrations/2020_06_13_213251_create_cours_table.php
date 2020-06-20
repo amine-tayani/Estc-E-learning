@@ -17,7 +17,7 @@ class CreateCoursTable extends Migration
             $table->id();
 		    $table->string('libele',100);
             $table->longText('description');
-            $table->binary('pdf')->nullable();
+            $table->string('pdf')->nullable();
             $table->timestamps();
         });
     }

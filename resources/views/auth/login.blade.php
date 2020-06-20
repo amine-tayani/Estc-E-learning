@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>E-learning Plateforme | Inscription</title>
+    <title>E-learning Plateforme | Connexion</title>
 
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 
@@ -21,8 +21,6 @@
                     <form method="POST" action="{{ route('login') }}">
                         <h2>Se connecter au Compte</h2>
                         @csrf
-
-
                         <input id="username" type="text" name="username" value="{{ old('username') }}" required
                             autocomplete="username" autofocus placeholder="Username">
                         @error('username')
@@ -30,9 +28,6 @@
                             {{ $message }}
                         </span>
                         @enderror
-
-
-
                         <input id="password" type="password" name="password" required autocomplete="current-password"
                             placeholder="Mot de Passe">
 
