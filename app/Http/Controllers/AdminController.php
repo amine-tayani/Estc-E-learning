@@ -23,6 +23,17 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        return view('admin.admin');
     }
+    
+    public function cours(){
+        return view('admin.cours');
+    }
+    public function partie(){
+        return view('admin.partie');
+    }
+
+
+
+
 }

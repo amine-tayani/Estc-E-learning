@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>E-learning Plateforme | Admin Dashbord</title>
+  <title>Admin Dashboard | Gestion de cours</title>
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -212,7 +212,6 @@
     $('.feat-btn').click(function() {
         $('.sidebar .nav .feat-show').toggleClass("show");
     });
-
   </script>
 
 
@@ -223,31 +222,10 @@
 <script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
-
-<!--  Notifications Plugin    -->
-<script src="/js/bootstrap-notify.js"></script>
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="/js/demo.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-
-        	demo.initChartist();
-
-        	$.notify({
-            	icon: 'pe-7s-gift',
-            	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            },{
-                type: 'info',
-                timer: 4000
-            });
-
-    	});
-</script>
 
 </html>

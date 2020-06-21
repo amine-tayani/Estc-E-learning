@@ -3,18 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Partie;
+use App\Cours;
+
 use Illuminate\Http\Request;
 
 class PartieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $partie = Partie::all();
+        return view('partie.partie_list',['partie' => $partie]);
     }
 
     /**
@@ -24,7 +32,9 @@ class PartieController extends Controller
      */
     public function create()
     {
-        //
+       $cours = Cours::all();
+       return view('partie.partie-create',['coursList' => $cours]);
+
     }
 
     /**
@@ -35,7 +45,13 @@ class PartieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $partie = new Partie;
+       $partie->titre = $request->titre;
+       $partie->contenu = $request->contenu;
+       $partie->cours_id = $request->cours_id;
+       $partie->save();
+       return redirect()->back();
+
     }
 
     /**
@@ -44,9 +60,10 @@ class PartieController extends Controller
      * @param  \App\Partie  $partie
      * @return \Illuminate\Http\Response
      */
-    public function show(Partie $partie)
+    public function show($id)
     {
-        //
+        $partie = Partie::find($id);
+        return view('partie.view-partie',compact('partie'));
     }
 
     /**
@@ -55,11 +72,17 @@ class PartieController extends Controller
      * @param  \App\Partie  $partie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Partie $partie)
-    {
-        //
-    }
 
+    public function modifier()
+    {
+        $partie = Partie::all();
+        return view('partie.modifier-partie',['partie' => $partie]);
+    }
+    public function edit($id)
+    {
+        $partie = Partie::findOrFail($id);
+        return view('partie.edit-partie', compact('partie'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -67,19 +90,34 @@ class PartieController extends Controller
      * @param  \App\Partie  $partie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Partie $partie)
+    public function update(Request $request, $id)
     {
-        //
+        $partie = Partie::find($id);
+
+        if($request->file('file')){
+            $file = $request->file('file');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $request->file->move('storage/',$filename);
+ 
+            $partie->pdf=$filename;
+        }
+        $partie->libele=$request->libele;
+        $partie->description=$request->description;
+        $partie->save();
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Partie  $partie
+     * @param  \App\partie  $partie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partie $partie)
+    public function destroy($id)
     {
-        //
+        $partie = partie::findOrFail($id);
+        $partie->delete();
+
+        return redirect()->back();
     }
 }

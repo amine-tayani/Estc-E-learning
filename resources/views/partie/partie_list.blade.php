@@ -2,9 +2,8 @@
 <html>
 
 <head>
-  <title>Plateforme E-learning | Cours</title>
+  <title>Cours</title>
   <link rel="stylesheet" href="/css/cours.css" type="text/css">
-  <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <link rel="stylesheet" href="/css/animate.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +72,7 @@
           {{ $cours->description }}
         </div>
         <div>
-          {{-- <a class="btn" href="/cours/download/{{ $cours->pdf}}">Telecharger</a> --}}
+          <a class="btn" href="/cours/download/{{ $cours->pdf}}">Telecharger</a>
           <a class="btn" href="/cours/view/{{ $cours->id}}">Voir Cours</a>
         </div>
         <div>

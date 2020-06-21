@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Admin | Create cours</title>
+  <title>Modifier Cours | {{$cours->libele}}</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -30,16 +31,23 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+
 </head>
 
 <body>
 
+
+
   <div class="wrapper">
     <div class="sidebar" data-color="blue" data-image="/img/sidebar-4.jpg">
 
+      <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+
+
       <div class="sidebar-wrapper">
         <div class="logo">
-          <a href="" class="simple-text">
+          <a href="/admin" class="simple-text">
             Admin
           </a>
         </div>
@@ -52,37 +60,32 @@
             </a>
           </li>
           <li>
-            <a href="">
-              <i class="/admin"></i>
+            <a href="/admin">
               <i class="fa fa-user"></i>
               <p>Profile Admin</p>
             </a>
           </li>
-          <li class="active">
+          <li>
             <a href="/create-cours">
               <i class="fa fa-plus"></i>
               <p>Ajouter cours</p>
             </a>
           </li>
           <li>
-            <a href="typography.html">
+            <a href="">
               <i class="fa fa-minus"></i>
               <p>Supprimer cours</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="/edit-cours">
               <i class="fa fa-pencil"></i>
               <p>Modifier cours</p>
             </a>
           </li>
-
-
         </ul>
       </div>
     </div>
-
-
 
     <div class="main-panel">
       <nav class="navbar navbar-default navbar-fixed">
@@ -94,24 +97,19 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/create-cours">Ajouter cours</a>
+            <a class="navbar-brand" href="#">Modifier cours</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
               <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <!--    <i class="fa fa-dashboard"></i>
-                                 <p class="hidden-lg hidden-md">Dashboard</p>  -->
-                  <button type="button" data-toggle="modal" data-target="#facultyModal">ADD</button>
-
+                  <i class="fa fa-dashboard"></i>
+                  <p class="hidden-lg hidden-md">Dashboard</p>
                 </a>
               </li>
 
 
             </ul>
-
-
-
 
             <ul class="nav navbar-nav navbar-right">
               <li>
@@ -119,6 +117,7 @@
                   <p>Accueil</p>
                 </a>
               </li>
+
 
               <li>
                 <a href="#">
@@ -131,90 +130,62 @@
         </div>
       </nav>
 
-      <div class="content">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ajouter cours</h5>
+
+
+
+      <br><br>
+      <div class="container-fluid">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <div class="m-0 font-weight-bold text-primary"> <br> &nbsp; Modifier le cours du {{$cours->libele}} <br>
+
+            </div> <br>
           </div>
-          <form action="{{ route('create-cours.submit') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Libele</label>
-                <input type="text" name="libele" class="form-control" placeholder="Enter le titre de  cours" required>
+          <div class="card-body">
+            <form method="post" action="{{ route('cours.update',$cours->id) }}">
+              @csrf
+              @method('PUT')
+              <div class=" form-group">
+                <label style="color: #000; font-size: 15px;"> &nbsp; Titre</label>
+                <input type="text" name="libele" class="form-control" placeholder="Enter le titre du cours" required
+                  value="{{ $cours->libele }}">
               </div>
               <div class="form-group">
-                <label>Description</label>
-                <input type="text" name="description" class="form-control" placeholder="Enter la description" required>
+                <label style="color: #000; font-size: 15px;">&nbsp; Description</label>
+                <input type="text" name="description" value="{{ $cours->description }}" class="form-control"
+                  placeholder="Enter description" required>
               </div>
               <div class="form-group">
-                <label>importer cours</label>
-                <input type="file" name="file" id="file" class="form-control" required>
+                <label style="color: #000; font-size: 15px;"> &nbsp; Importer cours</label>
+                <input type="file" value="{{ $cours->pdf }}" name="file" id="file" class="form-control">
               </div>
-            </div>
-            <div class="modal-footer">
-              <input type="submit" class="btn btn-primary" value="Ajouter cours">
-            </div>
-          </form>
+
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Modifier"></input>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
-
-    <footer class="footer">
-      <div class="container-fluid">
-        <nav class="pull-left">
-          <ul>
-            <li>
-              <a href="#">
-
-              </a>
-            </li>
-            <li>
-              <a href="#">
-
-              </a>
-            </li>
-            <li>
-              <a href="#">
-
-              </a>
-            </li>
-            <li>
-              <a href="#">
-
-              </a>
-            </li>
-          </ul>
-        </nav>
-
-      </div>
-    </footer>
-
-
   </div>
-  </div>
+
+
+
 
 
 </body>
 
 <!--   Core JS Files   -->
-<script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
-<!--  Charts Plugin -->
-<script src="assets/js/chartist.min.js"></script>
-
-<!--  Notifications Plugin    -->
-<script src="assets/js/bootstrap-notify.js"></script>
-
-<!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
+<script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
+<script src=" /js/demo.js"></script>
 
 
 </html>

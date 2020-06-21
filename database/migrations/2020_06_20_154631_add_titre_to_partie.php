@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePartieTable extends Migration
+class AddTitreToPartie extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreatePartieTable extends Migration
      */
     public function up()
     {
-        Schema::create('parties', function (Blueprint $table) {
-            $table->id();
-            $table->string('contenu');
-            $table->unsignedBigInteger('cours_id'); 
-            $table->foreign('cours_id')->references('id')->on('cours');
-            $table->timestamps();
+        Schema::table('partie', function (Blueprint $table) {
+            $table->string('titre');
+
         });
     }
 
@@ -29,6 +26,8 @@ class CreatePartieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('partie');
+        Schema::table('partie', function (Blueprint $table) {
+            $table->string('titre');
+        });
     }
 }

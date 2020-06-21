@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Admin | Create cours</title>
+  <title>Admin | Create Partie</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -20,8 +20,6 @@
 
   <!--  Light Bootstrap Table core CSS    -->
   <link href="/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet" />
-
-
   <!--  CSS for Demo Purpose, don't include it in your project     -->
   <link href="/css/demo.css" rel="stylesheet" />
 
@@ -61,23 +59,21 @@
           <li class="active">
             <a href="/create-cours">
               <i class="fa fa-plus"></i>
-              <p>Ajouter cours</p>
+              <p>Ajouter Partie</p>
             </a>
           </li>
           <li>
             <a href="typography.html">
               <i class="fa fa-minus"></i>
-              <p>Supprimer cours</p>
+              <p>Supprimer Partie</p>
             </a>
           </li>
           <li>
             <a href="/edit-cours">
               <i class="fa fa-pencil"></i>
-              <p>Modifier cours</p>
+              <p>Modifier Partie</p>
             </a>
           </li>
-
-
         </ul>
       </div>
     </div>
@@ -94,25 +90,16 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/create-cours">Ajouter cours</a>
+            <a class="navbar-brand" href="/gestion-partie">Gestion Partie</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
               <li>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <!--    <i class="fa fa-dashboard"></i>
-                                 <p class="hidden-lg hidden-md">Dashboard</p>  -->
                   <button type="button" data-toggle="modal" data-target="#facultyModal">ADD</button>
-
                 </a>
               </li>
-
-
             </ul>
-
-
-
-
             <ul class="nav navbar-nav navbar-right">
               <li>
                 <a href="dashboard.html">
@@ -134,26 +121,32 @@
       <div class="content">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ajouter cours</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ajouter Partie</h5>
           </div>
-          <form action="{{ route('create-cours.submit') }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('create-partie.submit') }}" method="POST">
             @csrf
             <div class="modal-body">
+
               <div class="form-group">
-                <label>Libele</label>
-                <input type="text" name="libele" class="form-control" placeholder="Enter le titre de  cours" required>
+                <label>Titre de partie</label>
+                <input type="text" name="titre" class="form-control" placeholder="Enter le titre de partie" required>
               </div>
               <div class="form-group">
-                <label>Description</label>
-                <input type="text" name="description" class="form-control" placeholder="Enter la description" required>
+                <label>Contenu</label>
+                <textarea rows="8" name="contenu" class="form-control" placeholder="Enter le contenu du partie"
+                  required></textarea>
               </div>
               <div class="form-group">
-                <label>importer cours</label>
-                <input type="file" name="file" id="file" class="form-control" required>
+                <label>Choisir le cours</label>
+                <select name="cours_id" class="form-control">
+                  @foreach ($coursList as $cours)
+                  <option value="{{$cours->id}}">{{$cours->libele}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="modal-footer">
-              <input type="submit" class="btn btn-primary" value="Ajouter cours">
+              <input type="submit" class="btn btn-primary" value="Ajouter">
             </div>
           </form>
         </div>
