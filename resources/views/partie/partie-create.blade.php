@@ -49,29 +49,16 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="">
-              <i class="/admin"></i>
-              <i class="fa fa-user"></i>
-              <p>Profile Admin</p>
-            </a>
-          </li>
           <li class="active">
-            <a href="/create-cours">
+            <a href="/create-partie">
               <i class="fa fa-plus"></i>
               <p>Ajouter Partie</p>
             </a>
           </li>
           <li>
-            <a href="typography.html">
-              <i class="fa fa-minus"></i>
-              <p>Supprimer Partie</p>
-            </a>
-          </li>
-          <li>
-            <a href="/edit-cours">
+            <a href="/edit-partie">
               <i class="fa fa-pencil"></i>
-              <p>Modifier Partie</p>
+              <p>Modifier | Supprimer partie</p>
             </a>
           </li>
         </ul>

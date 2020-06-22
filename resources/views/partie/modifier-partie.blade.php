@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Admin | Modifier Cours</title>
+  <title>Admin | Modifier partie</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -56,27 +56,15 @@
             </a>
           </li>
           <li>
-            <a href="/admin">
-              <i class="fa fa-user"></i>
-              <p>Profile Admin</p>
-            </a>
-          </li>
-          <li>
-            <a href="/create-cours">
+            <a href="/create-partie">
               <i class="fa fa-plus"></i>
-              <p>Ajouter cours</p>
-            </a>
-          </li>
-          <li>
-            <a href="typography.html">
-              <i class="fa fa-minus"></i>
-              <p>Supprimer cours</p>
+              <p>Ajouter Partie</p>
             </a>
           </li>
           <li class="active">
-            <a href="/edit-cours">
+            <a href="/edit-partie">
               <i class="fa fa-pencil"></i>
-              <p>Modifier cours</p>
+              <p>Modifier | Supprimer Partie</p>
             </a>
           </li>
 
@@ -95,7 +83,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Modifier cours</a>
+            <a class="navbar-brand" href="#">Modifier partie</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -135,24 +123,30 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="header">
-                  <h4 class="title">Les cours</h4>
+                  <h4 class="title">Les Parties de Cours</h4>
                   <p class="category"></p>
                 </div>
                 <div class="content table-responsive table-full-width">
                   <table class="table table-hover table-striped">
                     <thead>
-                      <th>ID</th>
                       <th>Titre</th>
-                      <th>Description</th>
+                      <th>Id de Cours</th>
                       <th>Modifier</th>
+                      <th>Supprimer</th>
                     </thead>
                     <tbody>
-                      @foreach($cours as $cours)
+                      @foreach($partie->sortBy('cours_id') as $partie)
                       <tr>
-                        <td>{{$cours->id}}</td>
-                        <td>{{$cours->libele}}</td>
-                        <td>{{$cours->description}}</td>
-                        <td><a href="cours/{{$cours->id}}/edit" class="btn btn-success">EDIT</a></td>
+                        <td>{{$partie->titre}}</td>
+                        <td>{{$partie->cours_id}}</td>
+                        <td><a href="partie/{{$partie->id}}/edit" class="btn btn-success">EDIT</a></td>
+                        <td>
+                          <form action="{{ route('partie.delete', $partie->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                          </form>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>

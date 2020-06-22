@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
+
   <meta charset="utf-8" />
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Admin | Modifier et Supprimer Cours</title>
+  <title>Modifier tp | {{$tp->titre}}</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -31,12 +32,15 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
   <link href="/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
+
 </head>
 
 <body>
 
+
+
   <div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="assets/img/sidebar-4.jpg">
+    <div class="sidebar" data-color="blue" data-image="/img/sidebar-4.jpg">
 
       <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
@@ -44,7 +48,7 @@
       <div class="sidebar-wrapper">
         <div class="logo">
           <a href="/admin" class="simple-text">
-            AFIFI Nadia
+            Admin
           </a>
         </div>
 
@@ -62,19 +66,17 @@
             </a>
           </li>
           <li>
-            <a href="/create-cours">
+            <a href="/create-tp">
               <i class="fa fa-plus"></i>
-              <p>Ajouter cours</p>
+              <p>Ajouter tp</p>
             </a>
           </li>
           <li class="active">
-            <a href="/edit-cours">
+            <a href="/edit-tp">
               <i class="fa fa-pencil"></i>
-              <p>Modifier | Supprimer cours</p>
+              <p>Modifier | Supprimer tp</p>
             </a>
           </li>
-
-
         </ul>
       </div>
     </div>
@@ -89,7 +91,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Modifier cours</a>
+            <a class="navbar-brand" href="#">Modifier tp</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -123,53 +125,50 @@
       </nav>
 
 
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="header">
-                  <h4 class="title">Les cours</h4>
-                  <p class="category"></p>
-                </div>
-                <div class="content table-responsive table-full-width">
-                  <table class="table table-hover table-striped">
-                    <thead>
-                      <th>ID</th>
-                      <th>Titre</th>
-                      <th>Description</th>
-                      <th>Modifier</th>
-                      <th>Supprimer</th>
-                    </thead>
-                    <tbody>
-                      @foreach($cours as $cours)
-                      <tr>
-                        <td>{{$cours->id}}</td>
-                        <td>{{$cours->libele}}</td>
-                        <td>{{$cours->description}}</td>
-                        <td><a href="cours/{{$cours->id}}/edit" class="btn btn-success">EDIT</a></td>
-                        <td>
-                          <form action="{{ route('cours.delete', $cours->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                          </form>
-                        </td>
-                      </tr>
-                      @endforeach
-                    </tbody>
-                  </table>
 
-                </div>
+
+      <br><br>
+      <div class="container-fluid">
+        <div class="card shadow mb-4">
+          <div class="card-header py-3">
+            <div class="m-0 font-weight-bold text-primary"> <br> &nbsp; Modifier {{$tp->titre}} <br>
+
+            </div> <br>
+          </div>
+          <div class="card-body">
+            <form method="post" action="{{ route('tp.update',$tp->id) }}">
+              @csrf
+              @method('PUT')
+              <div class=" form-group">
+                <label style="color: #000; font-size: 15px;"> &nbsp; Titre</label>
+                <input type="text" name="titre" class="form-control" placeholder="Enter le titre du tp" required
+                  value="{{ $tp->titre }}">
               </div>
-            </div>
+              <div class="form-group">
+                <label style="color: #000; font-size: 15px;">&nbsp; Description</label>
+                <input type="text" name="description" value="{{ $tp->contenu }}" class="form-control"
+                  placeholder="Enter description" required>
+              </div>
+              <div class="form-group">
+                <label>Modifier le cours</label>
+                <select name="cours_id" class="form-control">
+                  @foreach ($cours as $cours)
+                  <option value="{{$cours->id}}">{{$cours->libele}}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group">
+                <label style="color: #000; font-size: 15px;"> &nbsp; Importer tp</label>
+                <input type="file" value="{{ $tp->pdf }}" name="file" id="file" class="form-control">
+              </div>
 
+              <div class="modal-footer">
+                <input type="submit" class="btn btn-primary" value="Modifier"></input>
+              </div>
 
-
+            </form>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
@@ -178,59 +177,17 @@
 
 
 
-  <footer class="footer">
-    <div class="container-fluid">
-      <nav class="pull-left">
-        <ul>
-          <li>
-            <a href="#">
-
-            </a>
-          </li>
-          <li>
-            <a href="#">
-
-            </a>
-          </li>
-          <li>
-            <a href="#">
-
-            </a>
-          </li>
-          <li>
-            <a href="#">
-
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-    </div>
-  </footer>
-
-
-  </div>
-  </div>
-
-
 </body>
 
 <!--   Core JS Files   -->
 <script src="/js/jquery.3.2.1.min.js" type="text/javascript"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 
-<!--  Charts Plugin -->
-
-<!--  Notifications Plugin    -->
-<script src="/js/bootstrap-notify.js"></script>
-
-
-
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="/js/demo.js"></script>
+<script src=" /js/demo.js"></script>
 
 
 </html>

@@ -26,8 +26,8 @@
                     <form method="POST" action="{{ route('register') }}">
                         <h2>Créer un compte</h2>
                         @csrf
-                        <input id="nom" type="text" name="nom" value="{{ old('nom') }}" required autocomplete="nom"
-                            autofocus placeholder="Nom">
+                        <input id="nom" type="text" name="nom" value="{{ old('nom') }}" autocomplete="nom" autofocus
+                            placeholder="Nom">
                         @error('nom')
                         <span class="invalid-feedback" role="alert">
                             {{ $message }}
@@ -35,15 +35,15 @@
                         @enderror
 
 
-                        <input id="prenom" type="text" name="prenom" value="{{ old('prenom') }}" required
-                            autocomplete="prenom" autofocus placeholder="Prenom">
+                        <input id="prenom" type="text" name="prenom" value="{{ old('prenom') }}" autocomplete="prenom"
+                            autofocus placeholder="Prenom">
 
                         @error('prenom')
                         <span class="invalid-feedback" role="alert">
                             {{ $message }}
                         </span>
                         @enderror
-                        <input id="username" type="text" name="username" value="{{ old('username') }}" required
+                        <input id="username" type="text" name="username" value="{{ old('username') }}"
                             autocomplete="username" autofocus placeholder="Username">
 
                         @error('username')
@@ -52,7 +52,7 @@
                         </span>
                         @enderror
 
-                        <input id="password" type="password" name="password" required autocomplete="new-password"
+                        <input id="password" type="password" name="password" autocomplete="new-password"
                             placeholder="Mot de Passe">
 
                         @error('password')
@@ -60,9 +60,10 @@
                             {{ $message }}
                         </span>
                         @enderror
-                        <input id="password-confirm" type="password" name="password_confirmation" required
+                        <input id="password-confirm" type="password" name="password_confirmation"
                             autocomplete="new-password" placeholder="Confirmer Mot de Passe">
-                        <input id="filiere" type="text" name="filiere" required placeholder="Filiere">
+                        <input id="filiere" type="text" name="filiere" placeholder="Filiere"
+                            value="{{ old('filiere') }}">
                         @error('filiere')
                         <span class="invalid-feedback" role="alert">
                             {{ $message }}

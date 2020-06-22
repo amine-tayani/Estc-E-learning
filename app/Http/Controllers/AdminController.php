@@ -32,6 +32,15 @@ class AdminController extends Controller
     public function partie(){
         return view('admin.partie');
     }
+    public function td(){
+        return view('admin.td');
+    }
+    public function tp(){
+        return view('admin.tp');
+    }
+    public function quiz(){
+        return view('admin.quiz');
+    }
 
 
 

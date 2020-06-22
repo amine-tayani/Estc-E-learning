@@ -108,15 +108,9 @@
             </a>
           </li>
           <li>
-            <a href="/delete-partie">
-              <i class="fa fa-minus"></i>
-              <p>Supprimer partie</p>
-            </a>
-          </li>
-          <li>
             <a href="/edit-partie">
               <i class="fa fa-pencil"></i>
-              <p>Modifier partie</p>
+              <p>Modifier | Supprimer partie</p>
             </a>
           </li>
 
@@ -163,7 +157,36 @@
         </div>
       </nav>
 
+      <div class="col-md-12">
+        <div class="card card-user">
+          <div class="image">
+            <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+              alt="..." />
+          </div>
+          <div class="content">
+            <div class="author">
+              <a href="#">
+                <img class="avatar border-gray" src="/img/faces/face-0.jpg" alt="..." />
 
+                <h4 class="title">Pr AFIFI Nadia<br />
+                  <small>Enseignant chercheur</small>
+                </h4>
+              </a>
+            </div>
+            <p class="description text-center"> "Enseignant professionnel axé sur l'optimisation <br>
+              du potentiel académique des élèves en appliquant <br>
+              diverses stratégies pédagogiques et techniques"
+            </p>
+          </div>
+          <hr>
+          <div class="text-center">
+            <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+            <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+            <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+
+          </div>
+        </div>
+      </div>
 
 
 

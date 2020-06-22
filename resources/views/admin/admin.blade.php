@@ -73,6 +73,7 @@
         <div class="text">Side menu</div>
         <ul>
           <li><a href="#">Dashboard</a></li>
+
           <li><a href="#" class="feat-btn">Feature
               <span class="fa fa-caret-down"></span>
             </a>
@@ -103,38 +104,38 @@
 
           <li>
             <a href="/gestion-cours">
-              <i class="fa fa-bars"></i>
+              <i class="fa fa-book "></i>
               <p>gestion cours</p>
             </a>
           </li>
           <li>
             <a href="/gestion-partie">
-              <i class="fa fa-bars"></i>
+              <i class="fa fa-bookmark"></i>
               <p>gestion parties</p>
             </a>
           </li>
           <li>
-            <a href="ajouter_td.html">
-              <i class="fa fa-bars"></i>
+            <a href="/gestion-td">
+              <i class="fa fa-newspaper-o"></i>
               <p>gestion td </p>
             </a>
           </li>
           <li>
-            <a href="ajouter_tp.html">
-              <i class="fa fa-bars"></i>
+            <a href="/gestion-tp">
+              <i class="fa fa-sticky-note-o"></i>
               <p>gestion tp </p>
             </a>
           </li>
           <li>
-            <a href="ajouter_video.html">
-              <i class="fa fa-bars"></i>
+            <a href="/gestion-video">
+              <i class="fa fa-video-camera "></i>
               <p>gestion video </p>
             </a>
           </li>
 
           <li>
-            <a href="ajouter_quiz.html">
-              <i class="fa fa-bars"></i>
+            <a href="/gestion-quiz">
+              <i class="fa fa-question-circle"></i>
               <p>gestion quiz </p>
             </a>
           </li>
@@ -156,33 +157,51 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/admin">Dashboard</a>
-          </div>
-          <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
-              <li>
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-dashboard"></i>
-                  <p class="hidden-lg hidden-md">Dashboard</p>
-                </a>
-              </li>
-            </ul>
+            <a class="navbar-brand" style="margin-left: 950px;" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+              Deconnexion </a>
 
-            <ul class="nav navbar-nav navbar-right">
-
-
-              <li>
-                <a href="#">
-                  <p type="button" data-toggle="modal" data-target="#faculty">Log out</p>
-
-                </a>
-              </li>
-              <li class="separator hidden-lg"></li>
-            </ul>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST"">
+              @csrf
+            </form>
           </div>
         </div>
+ 
+        </div>
       </nav>
+      <div class=" col-md-4">
+              <div class="card card-user">
+                <div class="image">
+                  <img
+                    src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400"
+                    alt="..." />
+                </div>
+                <div class="content">
+                  <div class="author">
+                    <a href="#">
+                      <img class="avatar border-gray" src="/img/faces/face-0.jpg" alt="..." />
+
+                      <h4 class="title">Pr AFIFI Nadia<br />
+                        <small>Enseignant chercheur</small>
+                      </h4>
+                    </a>
+                  </div>
+                  <p class="description text-center"> "Enseignant professionnel axé sur l'optimisation <br>
+                    du potentiel académique des élèves en appliquant <br>
+                    diverses stratégies pédagogiques et techniques"
+                  </p>
+                </div>
+                <hr>
+                <div class="text-center">
+                  <button href="#" class="btn btn-simple"><i class="fa fa-facebook-square"></i></button>
+                  <button href="#" class="btn btn-simple"><i class="fa fa-twitter"></i></button>
+                  <button href="#" class="btn btn-simple"><i class="fa fa-google-plus-square"></i></button>
+
+                </div>
+              </div>
+          </div>
+        </div>
     </div>
-  </div>
   </div>
   </div>
 

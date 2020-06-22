@@ -12,7 +12,15 @@ class Cours extends Model
       return $this->hasMany('App\Partie', 'cours_id', 'id');
   }
 
+  public function tds()
+  {
+      return $this->hasMany('App\Td', 'cours_id', 'id');
+  }
 
+  public function tps()
+  {
+      return $this->hasMany('App\Tp', 'cours_id', 'id');
+  }
 
     protected $fillable = [
         'libele','description','pdf'

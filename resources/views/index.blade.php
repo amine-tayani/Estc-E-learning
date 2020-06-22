@@ -59,8 +59,8 @@
         <i class="fa fa-apple"></i>
         <i class="fa fa-android"></i>
         <i class="fa fa-windows"></i><br><br>
-        <a href="/cours" class="btn btn-half"> Acceder au cours</a>
-        <a href="/register" class="btn btn-full"> Inscrivez-vouz</a>
+        <a href="/cours" class="btn btn-half"> Accéder au cours</a>
+        <a href="/login" class="btn btn-full"> Connexion</a>
       </li>
 
       <li class="img3">
@@ -72,7 +72,7 @@
         <i class="fa fa-android"></i>
         <i class="fa fa-windows"></i><br><br>
         <a href="/cours" class="btn btn-half"> Acceder au cours</a>
-        <a href="/register" class="btn btn-full"> Inscrivez-vouz</a>
+        <a href="/login" class="btn btn-full"> Connexion</a>
       </li>
     </ul>
   </section>

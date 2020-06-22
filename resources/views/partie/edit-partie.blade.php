@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Modifier Cours | {{$cours->libele}}</title>
+  <title>Modifier Partie | {{$partie->titre}}</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -60,29 +60,19 @@
             </a>
           </li>
           <li>
-            <a href="/admin">
-              <i class="fa fa-user"></i>
-              <p>Profile Admin</p>
-            </a>
-          </li>
-          <li>
-            <a href="/create-cours">
+            <a href="/create-partie">
               <i class="fa fa-plus"></i>
-              <p>Ajouter cours</p>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <i class="fa fa-minus"></i>
-              <p>Supprimer cours</p>
+              <p>Ajouter Partie</p>
             </a>
           </li>
           <li class="active">
-            <a href="/edit-cours">
+            <a href="/edit-partie">
               <i class="fa fa-pencil"></i>
-              <p>Modifier cours</p>
+              <p>Modifier | Supprimer Partie</p>
             </a>
           </li>
+
+
         </ul>
       </div>
     </div>
@@ -97,7 +87,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Modifier cours</a>
+            <a class="navbar-brand" href="#">Modifier partie</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -137,28 +127,33 @@
       <div class="container-fluid">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <div class="m-0 font-weight-bold text-primary"> <br> &nbsp; Modifier le cours du {{$cours->libele}} <br>
+            <div class="m-0 font-weight-bold text-primary"> <br> &nbsp; Modifier la partie : {{$partie->titre}} <br>
 
             </div> <br>
           </div>
           <div class="card-body">
-            <form method="post" action="{{ route('cours.update',$cours->id) }}">
+            <form method="post" action="{{ route('partie.update',$partie->id) }}">
               @csrf
               @method('PUT')
               <div class=" form-group">
                 <label style="color: #000; font-size: 15px;"> &nbsp; Titre</label>
-                <input type="text" name="libele" class="form-control" placeholder="Enter le titre du cours" required
-                  value="{{ $cours->libele }}">
+                <input type="text" name="titre" class="form-control" placeholder="Enter le titre du partie" required
+                  value="{{ $partie->titre }}">
               </div>
               <div class="form-group">
                 <label style="color: #000; font-size: 15px;">&nbsp; Description</label>
-                <input type="text" name="description" value="{{ $cours->description }}" class="form-control"
+                <input type="text" name="contenu" value="{{ $partie->contenu }}" class="form-control"
                   placeholder="Enter description" required>
               </div>
               <div class="form-group">
-                <label style="color: #000; font-size: 15px;"> &nbsp; Importer cours</label>
-                <input type="file" value="{{ $cours->pdf }}" name="file" id="file" class="form-control">
+                <label>Modifier le cours</label>
+                <select name="cours_id" class="form-control">
+                  @foreach ($cours as $cours)
+                  <option value="{{$cours->id}}">{{$cours->libele}}</option>
+                  @endforeach
+                </select>
               </div>
+
 
               <div class="modal-footer">
                 <input type="submit" class="btn btn-primary" value="Modifier"></input>

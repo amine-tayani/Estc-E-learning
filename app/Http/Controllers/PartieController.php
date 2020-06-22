@@ -80,8 +80,9 @@ class PartieController extends Controller
     }
     public function edit($id)
     {
+        $cours = Cours::all();
         $partie = Partie::findOrFail($id);
-        return view('partie.edit-partie', compact('partie'));
+        return view('partie.edit-partie', compact('partie','cours'));
     }
     /**
      * Update the specified resource in storage.
@@ -93,16 +94,9 @@ class PartieController extends Controller
     public function update(Request $request, $id)
     {
         $partie = Partie::find($id);
-
-        if($request->file('file')){
-            $file = $request->file('file');
-            $filename = time().'.'.$file->getClientOriginalExtension();
-            $request->file->move('storage/',$filename);
- 
-            $partie->pdf=$filename;
-        }
-        $partie->libele=$request->libele;
-        $partie->description=$request->description;
+        $partie->titre=$request->titre;
+        $partie->contenu=$request->contenu;
+        $partie->cours_id=$request->cours_id;
         $partie->save();
         return redirect()->back();
     }

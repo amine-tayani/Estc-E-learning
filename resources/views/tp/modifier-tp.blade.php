@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Admin | Modifier et Supprimer Cours</title>
+  <title>Admin | Modifier et Supprimer tp</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
   <meta name="viewport" content="width=device-width" />
@@ -62,15 +62,15 @@
             </a>
           </li>
           <li>
-            <a href="/create-cours">
+            <a href="/create-tp">
               <i class="fa fa-plus"></i>
-              <p>Ajouter cours</p>
+              <p>Ajouter tp</p>
             </a>
           </li>
           <li class="active">
-            <a href="/edit-cours">
+            <a href="/edit-tp">
               <i class="fa fa-pencil"></i>
-              <p>Modifier | Supprimer cours</p>
+              <p>Modifier | Supprimer tp</p>
             </a>
           </li>
 
@@ -89,7 +89,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Modifier cours</a>
+            <a class="navbar-brand" href="#">Modifier tp</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
@@ -129,7 +129,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="header">
-                  <h4 class="title">Les cours</h4>
+                  <h4 class="title">Les tp</h4>
                   <p class="category"></p>
                 </div>
                 <div class="content table-responsive table-full-width">
@@ -138,18 +138,20 @@
                       <th>ID</th>
                       <th>Titre</th>
                       <th>Description</th>
+                      <th>Cours id</th>
                       <th>Modifier</th>
                       <th>Supprimer</th>
                     </thead>
                     <tbody>
-                      @foreach($cours as $cours)
+                      @foreach($tp->sortBy('cours_id') as $tp)
                       <tr>
-                        <td>{{$cours->id}}</td>
-                        <td>{{$cours->libele}}</td>
-                        <td>{{$cours->description}}</td>
-                        <td><a href="cours/{{$cours->id}}/edit" class="btn btn-success">EDIT</a></td>
+                        <td>{{$tp->id}}</td>
+                        <td>{{$tp->titre}}</td>
+                        <td>{{$tp->contenu}}</td>
+                        <td>{{$tp->cours_id}}</td>
+                        <td><a href="tp/{{$tp->id}}/edit" class="btn btn-success">EDIT</a></td>
                         <td>
-                          <form action="{{ route('cours.delete', $cours->id)}}" method="post">
+                          <form action="{{ route('tp.delete', $tp->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Delete</button>

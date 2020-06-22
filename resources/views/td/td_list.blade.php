@@ -2,10 +2,10 @@
 <html>
 
 <head>
-  <title>Plateforme E-learning | Cours</title>
-  <link rel="stylesheet" href="/css/cours.css" type="text/css">
+  <title>Plateforme E-learning | Tds</title>
   <link rel="shortcut icon" href="/img/est.jpg" type="image/x-icon">
   <link rel="stylesheet" href="/css/animate.css">
+  <link rel="stylesheet" href="/css/LesTds.css" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/yourcode.js"></script>
@@ -28,7 +28,7 @@
 
 <body>
 
-  <header>
+  <header style="position: absolute">
     <div class="container">
       <div class="row">
         <a class="logo"><img src="/img/est1.ico"></a>
@@ -61,43 +61,41 @@
   <section class=" slider" id="home">
                 <ul class="slidr-carousel" id="slider-carousel">
                   <li class="img1">
-                    <h2 style="font-size: 130px;">Les cours
+                    <h2 style="font-size: 80px;">Les Travaux Diriges
                     </h2>
                     <p> <br></p>
                   </li>
                 </ul>
                 </section>
-
-                <br> <br> <br> <br> <br>
-                <div class="cards">
-                  @foreach ($cours as $cours)
-                  <div class="card">
-                    <span class="close"></span>
-                    <span class="arrow"></span>
-                    <article>
-                      <h2>{{ $cours->libele }}</h2>
-                      <div class="title">{{ $cours->created_at }}</div>
-                      <div class="pic">
-                        <img src="img/merise.png" alt="">
-                      </div>
-                      <div class="desc">
-                        {{ $cours->description }}
-                      </div>
-                      <div>
-                        {{-- <a class="btn" href="/cours/download/{{ $cours->pdf}}">Telecharger
-                        </a> --}}
-                        <a class="btn" href="/cours/view/{{ $cours->id}}">Voir Cours</a>
-                      </div>
-                      <div>
-                      </div>
-                    </article>
-                  </div>
-                  @endforeach
-                </div>
-                <br> <br> <br> <br> <br>
+                <section class="intro-area white" id="intro">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-sm-12 text-center">
+                        <br> <br> <br>
 
 
 
+                      </div>
+                    </div>
+
+
+                    <div class="containerrr">
+                      @foreach ($td as $td)
+
+                      <div class="card">
+                        <div class="content">
+                          <h2>TD</h2>
+                          <p>{{$td->titre}}</p>
+                          <a href="/td/view/{{$td->id}}">Voir td</a>
+                        </div>
+                      </div>
+                      @endforeach
+
+                    </div>
+
+
+                    <div>
+                </section>
 
 
                 <script>
