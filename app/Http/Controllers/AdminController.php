@@ -38,6 +38,9 @@ class AdminController extends Controller
     public function tp(){
         return view('admin.tp');
     }
+    public function video(){
+        return view('admin.video');
+    }
     public function quiz(){
         return view('admin.quiz');
     }

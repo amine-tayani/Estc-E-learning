@@ -31,6 +31,7 @@ Route::get('/gestion-partie', 'AdminController@partie')->name('gestion-partie')-
 Route::get('/gestion-td', 'AdminController@td')->name('gestion-td')->middleware('auth:admin');
 Route::get('/gestion-tp', 'AdminController@tp')->name('gestion-tp')->middleware('auth:admin');
 Route::get('/gestion-quiz', 'AdminController@quiz')->name('gestion-quiz')->middleware('auth:admin');
+Route::get('/gestion-video', 'AdminController@video')->name('gestion-video')->middleware('auth:admin');
 
 
 
@@ -82,6 +83,21 @@ Route::put('partie/{id}','PartieController@update')->name('partie.update')->midd
 Route::delete('partie/{id}','PartieController@destroy')->name('partie.delete')->middleware('auth:admin');
 Route::get('/partie','PartieController@index');
 
+
+// les routes de video Crud
+Route::get('/create-video','VideoController@create')->name('create-video')->middleware('auth:admin');
+Route::post('/create-video','VideoController@store')->name('create-video.submit')->middleware('auth:admin');
+Route::get('edit-video/','VideoController@modifier')->middleware('auth:admin');
+Route::get('video/{id}/edit','VideoController@edit')->middleware('auth:admin');
+Route::put('video/{id}','VideoController@update')->name('video.update')->middleware('auth:admin');
+Route::delete('video/{tp}','VideoController@destroy')->name('video.delete')->middleware('auth:admin');
+Route::get('/video/view/{id}','VideoController@show');
+Route::get('/video/download/{file}','VideoController@download');
+Route::get('/video','VideoController@index');
+
+
+
+
 // les routes de quiz Crud
 Route::get('/create-quiz','QuizController@create')->name('create-quiz')->middleware('auth:admin');
 Route::post('/create-quiz','QuizController@store')->name('create-quiz.submit')->middleware('auth:admin');
@@ -90,6 +106,10 @@ Route::get('quiz/{id}/edit','QuizController@edit')->middleware('auth:admin');
 Route::put('quiz/{id}','QuizController@update')->name('quiz.update')->middleware('auth:admin');
 Route::delete('quiz/{id}','QuizController@destroy')->name('quiz.delete')->middleware('auth:admin');
 Route::get('/quiz','QuizController@index');
+
+
+
+
 
 
 

@@ -22,6 +22,11 @@ class Cours extends Model
       return $this->hasMany('App\Tp', 'cours_id', 'id');
   }
 
+  public function videos()
+  {
+      return $this->hasMany('App\Video', 'cours_id', 'id');
+  }
+
     protected $fillable = [
         'libele','description','pdf'
     ];

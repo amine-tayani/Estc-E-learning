@@ -105,7 +105,6 @@
 
 
                     <div class="tablo">
-                      <h3>Chapitre II: DIAGRAMME DES CAS D’UTILISATIONS : USE CASES DIAGRAM </h3>
                       <a href="/fr/premium" class="course-part-summary__link">
 
                       </a>
@@ -163,27 +162,37 @@
                           </ul>
                         </h4>
                         @endforeach
-
-
-
                       </ol>
 
 
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <h1>Cours Video</h1>
+                    @foreach ($cours->videos as $video)
+                    <video width="820" height="640" controls>
+                      <source src="/storage/video/{{$video->video}}">
+                    </video>
+                    @endforeach
                     <div class="bot">
                       @foreach ($cours->tds as $td)
-                      <a href="/td/view/{{$td->id}}"><button class=" td">Voir td : {{$td->titre}}</button></a>
+                      <div class="alert alert-success" role="alert">
+                        <a href="/td/view/{{$td->id}}"> Voir td : {{$td->titre}}</a>
+                      </div>
                       @endforeach
                     </div>
                     <div class="bot">
                       @foreach ($cours->tps as $tp)
-                      <a href="/tp/view/{{$tp->id}}"><button style="background-color: chocolate" class=" td">Voir :
-                          {{$tp->titre}}</button></a>
+                      <div class="alert alert-danger" role="alert">
+                        <a href="/td/view/{{$tp->id}}"> Voir td : {{$tp->titre}}</a>
+                      </div>
                       @endforeach
                     </div>
                     <div class="bot">
-                      <a href="quiz2.html"> <button style="background-color:teal" class="quiz">Passer
-                          Quiz</button> </a>
+                      <div class="alert alert-warning" role="alert">
+                        <a> Voir quiz</a>
+                      </div>
                     </div>
                   </div>
                 </section>

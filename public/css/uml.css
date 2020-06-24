@@ -752,15 +752,6 @@ p {
 .chap ol h4 .feat-show.show {
     display: block;
 }
-.chap ol h4 .featt-show.showw {
-    display: block;
-}
-.chap ol h4 .feattt-show.showww {
-    display: block;
-}
-.chap ol h4 .featttt-show.showwww {
-    display: block;
-}
 
 .chap ol h4 a.active {
     color: cyan;
